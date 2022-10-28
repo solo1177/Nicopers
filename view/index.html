@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div#rotateViewer {
+            width: 1500px;
+            height: auto;
+            overflow: hidden;
+            position: relative;
+            margin: 50px auto;
+            max-width: calc(100vw - 20px);
+            font-size: 0;
+        }
+
+        div#rotateViewer.autorotating {
+            box-shadow: 0 0 11px rgb(105 185 254 / 50%);
+        }
+
+        div#rotateViewer>div {
+            display: none;
+        }
+
+        div#rotateViewer.loading {
+            opacity: 0.5;
+        }
+
+        div#rotateViewer>div.active {
+            display: block;
+        }
+
+        div#rotateViewer>div>img {
+            user-drag: none;
+            -webkit-user-drag: none;
+            -moz-user-select: none;
+            width: 100%;
+            max-width: 1500px;
+        }
+
+        .ui-container {
+            text-align: center;
+        }
+
+        .ui-container button {
+            /*
+            font-size: 18px;
+            line-height: 1.5rem;
+            padding: 6px 40px;
+            background: #56575d;
+            border-radius: 5px;
+            border: 0px solid #fff86f;
+            color: #ffffff;
+            cursor: pointer;
+            */
+        }
+    </style>
+    <script src="veiwer.min.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', (evt) => {
+            rotateViewer.init({
+                containerId: 'rotateViewer',
+                buttonAutoRotateId: 'button-autorotate'
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <div id="rotateViewer" class="loading">
+        <div class="d1 active"><img data-src="./img/img1.jpg"></div>
+        <div class="d2"><img data-src="./img/img2.jpg"></div>
+        <div class="d3"><img data-src="./img/img3.jpg"></div>
+        <div class="d4"><img data-src="./img/img4.jpg"></div>
+        <div class="d5"><img data-src="./img/img5.jpg"></div>
+        <div class="d6"><img data-src="./img/img6.jpg"></div>
+        <div class="d7"><img data-src="./img/img7.jpg"></div>
+        <div class="d8"><img data-src="./img/img8.jpg"></div>
+    </div>
+    <div class="ui-container">
+        <button id="button-autorotate">自動回転</button>
+    </div>
+</body>
+
+</html>
